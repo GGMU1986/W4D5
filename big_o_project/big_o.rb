@@ -40,7 +40,7 @@ end
 # end
 # O(n^2 + m)
 
-def largest_continuous_subsum(list)
+# def largest_continuous_subsum(list)
     # i = 0
     # largest_sum = false
     # while i < list.length
@@ -56,33 +56,42 @@ def largest_continuous_subsum(list)
     # end
     # largest_sum
     
-    sum = 0
-    max_sum
-    list.each
-end
-
-<<<<<<< HEAD
- p largest_continuous_subsum(list3)
- p largest_continuous_subsum(list2)
- p largest_continuous_subsum(list1)
-
- 
+    
+# end
 
 
-=======
-list1 = [5, 3, -7]
-list2 = [2, 3, -6, 7, -6, 7]
-list3 = [-5, -1, -3]
-
-p largest_continuous_subsum(list3)
-p largest_continuous_subsum(list2)
-p largest_continuous_subsum(list1)
-
-
-# [2, 3, -6, 7, -6, 7]
-             i   j
+# [5, 3, -7]
+   
 # max_sum = 5
 # i = 3
 # j = 4
 # range_sum = 1
->>>>>>> b3e75601e417e3375d403be763e62f935f38f0ad
+require "byebug"
+def largest_continuous_subsum(list)
+    max_sum = list.first
+    range_sum = list.first #=> 
+    i = 0 #=>1
+    j = 0 #=>1
+    debugger
+    while j < list.length #=> 3
+        # range_sum = list[i..j]
+        if max_sum <= range_sum || i == j
+            j += 1
+            range_sum += list[j] unless j > list.length - 1
+            max_sum = range_sum if range_sum > max_sum
+        else
+            range_sum -= list[i]
+            i += 1
+            max_sum = range_sum unless max_sum > range_sum
+        end
+    end
+    max_sum
+end
+
+list1 = [5, 3, -7]
+list2 = [2, 3, -6, 7, -6, 7]
+list3 = [-5, -1, -3]
+
+# p largest_continuous_subsum(list3)
+p largest_continuous_subsum(list2)
+# p largest_continuous_subsum(list1)

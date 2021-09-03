@@ -26,4 +26,22 @@ def my_min(list)
     min
 end
 
-p my_min(list)  # =>  -5
+# p my_min(list)  # =>  -5
+
+def largest_continuous_subsum(list)
+    subs = []
+
+    (0...list.length).each do |i|
+        (i...list.length).each do |j|
+            subs << list[i..j]
+        end
+    end
+    subs.map(&:sum).max
+end
+ list1 = [5, 3, -7]
+ list2 = [2, 3, -6, 7, -6, 7]
+ list3 = [-5, -1, -3]
+
+ p largest_continuous_subsum(list3)
+ p largest_continuous_subsum(list2)
+ p largest_continuous_subsum(list1)

@@ -28,20 +28,42 @@ end
 
 # p my_min(list)  # =>  -5
 
+# def largest_continuous_subsum(list)
+#     subs = []
+
+#     (0...list.length).each do |i|
+#         (i...list.length).each do |j|
+#             subs << list[i..j]
+#         end
+#     end
+#     subs.map(&:sum).max
+# end
+# O(n^2 + m)
+
 def largest_continuous_subsum(list)
-    subs = []
-
-    (0...list.length).each do |i|
-        (i...list.length).each do |j|
-            subs << list[i..j]
-        end
-    end
-    subs.map(&:sum).max
+    # i = 0
+    # largest_sum = false
+    # while i < list.length
+    #     j = i
+    #     while j < list.length
+    #         curr_sum = list[i..j].sum
+    #         if !largest_sum || curr_sum > largest_sum
+    #             largest_sum = curr_sum
+    #         end
+    #         j += 1
+    #     end
+    #     i += 1
+    # end
+    # largest_sum
+    
 end
- list1 = [5, 3, -7]
- list2 = [2, 3, -6, 7, -6, 7]
- list3 = [-5, -1, -3]
 
- p largest_continuous_subsum(list3)
- p largest_continuous_subsum(list2)
- p largest_continuous_subsum(list1)
+list1 = [5, 3, -7]
+list2 = [2, 3, -6, 7, -6, 7]
+list3 = [-5, -1, -3]
+
+p largest_continuous_subsum(list3)
+p largest_continuous_subsum(list2)
+p largest_continuous_subsum(list1)
+
+

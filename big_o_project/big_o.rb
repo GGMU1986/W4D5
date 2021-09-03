@@ -56,6 +56,9 @@ def largest_continuous_subsum(list)
     # end
     # largest_sum
     
+    sum = 0
+    max_sum
+    list.each
 end
 
 list1 = [5, 3, -7]
@@ -67,3 +70,9 @@ p largest_continuous_subsum(list2)
 p largest_continuous_subsum(list1)
 
 
+# [2, 3, -6, 7, -6, 7]
+             i   j
+# max_sum = 5
+# i = 3
+# j = 4
+# range_sum = 1

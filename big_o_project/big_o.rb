@@ -67,22 +67,45 @@ end
 # j = 4
 # range_sum = 1
 require "byebug"
+# def largest_continuous_subsum(list)
+#     max_sum = list.first
+#     range_sum = list.first #=> 
+#     i = 0 #=>1
+#     j = 0 #=>1
+#     debugger
+#     while j < list.length #=> 3
+#         # range_sum = list[i..j]
+#         if max_sum <= range_sum || i == j
+#             j += 1
+#             range_sum += list[j] unless j > list.length - 1
+#             max_sum = range_sum if range_sum > max_sum
+#         else
+#             range_sum -= list[i]
+#             i += 1
+#             max_sum = range_sum unless max_sum > range_sum
+#         end
+#     end
+#     max_sum
+# end
+
+# [-5, -1, -3]
+            ^
+
+#   curr_sum = 0
+#   max_sum = -1
+
+
 def largest_continuous_subsum(list)
+    curr_sum = 0
     max_sum = list.first
-    range_sum = list.first #=> 
-    i = 0 #=>1
-    j = 0 #=>1
-    debugger
-    while j < list.length #=> 3
-        # range_sum = list[i..j]
-        if max_sum <= range_sum || i == j
-            j += 1
-            range_sum += list[j] unless j > list.length - 1
-            max_sum = range_sum if range_sum > max_sum
-        else
-            range_sum -= list[i]
-            i += 1
-            max_sum = range_sum unless max_sum > range_sum
+    list.each do |el|
+        curr_sum += el
+        if curr_sum > max_sum
+            max_sum = curr_sum
+        end
+
+        if curr_sum < 0
+            curr_sum = 0
         end
     end
     max_sum
@@ -92,6 +115,6 @@ list1 = [5, 3, -7]
 list2 = [2, 3, -6, 7, -6, 7]
 list3 = [-5, -1, -3]
 
-# p largest_continuous_subsum(list3)
+p largest_continuous_subsum(list3)
 p largest_continuous_subsum(list2)
-# p largest_continuous_subsum(list1)
+p largest_continuous_subsum(list1)
